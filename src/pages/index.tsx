@@ -1,4 +1,4 @@
-import { Button, TextInput } from "@mantine/core";
+import { Button, Loader, TextInput } from "@mantine/core";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { Task } from "@/types";
@@ -6,7 +6,7 @@ import { Task } from "@/types";
 const Home = () => {
   const [taskName, setTaskName] = useState("");
 
-  const { mutate } = useMutation({
+  const { mutate, status } = useMutation({
     mutationFn: (newTask: Task) => {
       return fetch("http://localhost:3000/api/task", {
         method: "POST",
@@ -37,7 +37,11 @@ const Home = () => {
         label="Enter Task"
       />
       <Button type="submit" mt={6}>
-        Submit
+        {status === "pending" ? (
+          <Loader type="dots" size="sm" color="white" />
+        ) : (
+          "Submit"
+        )}
       </Button>
     </form>
   );
