@@ -1,7 +1,7 @@
-import { Box, Button, Checkbox, Group } from "@mantine/core";
-import { IconTrash } from "@tabler/icons-react";
+import { Box, Checkbox, Group } from "@mantine/core";
+import { Task as TaskType } from "@/types";
 
-const Task = () => {
+const Task = ({ name, status, id }: TaskType) => {
   return (
     <Box
       style={{
@@ -14,12 +14,9 @@ const Task = () => {
         alignItems: "center",
       }}
     >
-      <p>Sample task</p>
+      <p>{name}</p>
       <Group>
         <Checkbox />
-        <Button p={0} variant="transparent">
-          <IconTrash color="var(--mantine-color-red-5)" />
-        </Button>
       </Group>
     </Box>
   );
