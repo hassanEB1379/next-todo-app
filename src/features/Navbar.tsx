@@ -4,12 +4,16 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <Stack>
-      <Button variant="subtle">
-        <Link href="/">Home</Link>
-      </Button>
-      <Button variant="subtle">
-        <Link href="/tasks">Tasks</Link>
-      </Button>
+      <Link href="/">
+        <Button w="100%" variant="subtle">
+          Home
+        </Button>
+      </Link>
+      <Link href="/tasks">
+        <Button w="100%" variant="subtle">
+          Tasks
+        </Button>
+      </Link>
     </Stack>
   );
 };
